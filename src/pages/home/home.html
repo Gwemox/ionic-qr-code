@@ -8,11 +8,15 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <h3>Génération d'un QR code</h3>
+<ion-item>
+  <ion-input type="text" placeholder="Valeur du QR code" [(ngModel)]="inputQrCode"></ion-input>
+</ion-item>
+  <button ion-button full icon-left (click)="generateQrCode()"><ion-icon name="barcode"></ion-icon>Générer le QR code</button>
+  <ion-card *ngIf="valueQrCode" >
+      <ngx-qrcode [qrc-value]="valueQrCode"></ngx-qrcode>
+      <ion-card-content>
+        <p><b>Valeur : </b> {{valueQrCode}}</p>
+      </ion-card-content>
+  </ion-card>
 </ion-content>
