@@ -1,3 +1,9 @@
 page-qr-scanner {
+    #resultQr {
+        user-select: text;
+    }
 
+    .spinner-center {
+        vertical-align: middle;
+    }
 }

@@ -16,7 +16,8 @@
   <ion-card *ngIf="valueQrCode" >
       <ngx-qrcode [qrc-value]="valueQrCode"></ngx-qrcode>
       <ion-card-content>
-        <p><b>Valeur : </b> {{valueQrCode}}</p>
+        <p><b>Valeur : </b> {{valueQrCode}}</p>     
+        <button ion-button full icon-left (click)="share()"><ion-icon name="share"></ion-icon>Partager</button>
       </ion-card-content>
   </ion-card>
 </ion-content>

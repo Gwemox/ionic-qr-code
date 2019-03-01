@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { QrCodeProvider } from './../../providers/qr-code/qr-code';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -14,12 +15,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'qr-scanner.html',
 })
 export class QrScannerPage {
+  result: String;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private qrCodeProvider: QrCodeProvider, private cdRef:ChangeDetectorRef) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QrScannerPage');
+    this.startScan();
+  }
+  onResultScan = (value: String) => {
+    this.result = value;
+    this.cdRef.detectChanges();
+  }
+  onErrorScan = (error: any) => {
+    console.error(error);
   }
 
+  startScan() {
+    this.result = null;
+    this.qrCodeProvider.scan(this.onResultScan.bind(this), this.onErrorScan.bind(this));
+  }
+  ionViewWillLeave(){
+   this.qrCodeProvider.stopScan();
+  }
+  
 }
