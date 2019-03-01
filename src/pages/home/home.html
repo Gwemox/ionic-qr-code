@@ -3,15 +3,14 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Génération QR code</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Génération d'un QR code</h3>
-<ion-item>
-  <ion-input type="text" placeholder="Valeur du QR code" [(ngModel)]="inputQrCode"></ion-input>
-</ion-item>
+  <ion-item>
+    <ion-input type="text" placeholder="Valeur du QR code" [(ngModel)]="inputQrCode"></ion-input>
+  </ion-item>
   <button ion-button full icon-left (click)="generateQrCode()"><ion-icon name="barcode"></ion-icon>Générer le QR code</button>
   <ion-card *ngIf="valueQrCode" >
       <ngx-qrcode [qrc-value]="valueQrCode"></ngx-qrcode>

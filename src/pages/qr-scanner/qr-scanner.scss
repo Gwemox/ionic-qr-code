@@ -6,4 +6,16 @@ page-qr-scanner {
     .spinner-center {
         vertical-align: middle;
     }
+
+    #btn-actions-right {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    #btn-actions-left {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+    }
 }

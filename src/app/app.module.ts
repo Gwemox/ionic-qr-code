@@ -15,6 +15,7 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 import { QRScanner } from '@ionic-native/qr-scanner';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     NgxQRCodeModule
   ],
   bootstrap: [IonicApp],

@@ -14,12 +14,21 @@
 </ion-header>
 
 <ion-content padding style="background: none transparent;">
-<ion-card>
-  <ion-card-content>
-    <p *ngIf="!result; else showResult"><ion-spinner class="spinner-center"></ion-spinner> Scan en cours ...</p>
-    <ng-template #showResult>
-      <p><b>Résultat :</b> <span id="resultQr">{{result}}</span></p>
-      <button ion-button full icon-left (click)="startScan()"><ion-icon name="refresh"></ion-icon>Nouveau scan</button></ng-template>
-  </ion-card-content>
-</ion-card>
+  <ion-card>
+    <ion-card-content>
+      <p *ngIf="!result; else showResult"><ion-spinner class="spinner-center"></ion-spinner> Scan en cours ...</p>
+      <ng-template #showResult>
+        <p><b>Résultat :</b> <span id="resultQr">{{result}}</span></p>
+        <button ion-button full icon-left (click)="startScan()"><ion-icon name="refresh"></ion-icon>Nouveau scan</button></ng-template>
+    </ion-card-content>
+  </ion-card>
+  <div id='btn-actions-right'>
+      <button ion-button (click)="turnFlash()"><ion-icon name="{{ flashOn ? 'flash' : 'flash' }}"></ion-icon></button>
+      <button ion-button (click)="reverseCamera()"><ion-icon name="reverse-camera"></ion-icon></button>
+  </div>
+
+  <div id='btn-actions-left'>
+    <input #uploader type="file" style="display: none;" accept="image/*" id="upload" (change)="uploadPicture($event)" />
+    <button ion-button (click)="uploader.click()"><ion-icon name="cloud-upload"></ion-icon></button>
+</div>
 </ion-content>
